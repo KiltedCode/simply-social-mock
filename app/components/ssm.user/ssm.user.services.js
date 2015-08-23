@@ -4,10 +4,10 @@
 angular.module('ssm.user')
 .factory('CurrentUserService', [ function () {
 	var currentUser = {
-		'id' : 'ad9r-4dsc-567s',
+		'id' : 'aaaa-tuan',
 		'fname' : 'Jessica',
 		'lname' : 'Tuan',
-		'photo' : 'ad9r-4dsc-567s-thumb.png'
+		'photo' : 'aaaa-tuan-thumb.png'
 	};
 
 	return {

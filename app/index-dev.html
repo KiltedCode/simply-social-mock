@@ -7,8 +7,8 @@
 </head>
 <body ng-app="ssm">
 
-<div ng-view></div>
-
+<nav ng-include src="'views/navbar.html'" class="navbar"></nav>
+<div ng-view class="view"></div>
 
 <!-- Angular files-->
 <script src="lib/angular/angular.min.js"></script>

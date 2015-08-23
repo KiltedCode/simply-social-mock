@@ -1,5 +1,28 @@
 $ssm-green: #00b286;
 
+@mixin bp($point) {
+  $bp-tall: "(max-width: 600px)";
+  $bp-grande: "(max-width: 1250px)";
+  $bp-venti: "(max-width: 1500px)";
+
+  @if $point == venti {
+    @media #{$bp-venti} { @content; }
+  }
+  @else if $point == grande {
+    @media #{$bp-grande} { @content; }
+  }
+  @else if $point == tall {
+    @media #{$bp-tall}  { @content; }
+  }
+}
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+}
+
 @font-face {
   font-family: 'ProximaNova';
   src: url(../fonts/proxima-nova/ProximaNova-Regular.otf);
@@ -69,33 +92,184 @@ $ssm-green: #00b286;
   font-style: normal;
 }
 @font-face {
-  font-family: 'ProximaNova';
+  font-family: 'ProximaNovaCond';
   src: url(../fonts/proxima-nova/ProximaNovaCond-LightIt.otf);
   font-weight: 300;
   font-style: italic;
 }
 @font-face {
-  font-family: 'ProximaNova';
+  font-family: 'ProximaNovaCond';
   src: url(../fonts/proxima-nova/ProximaNovaCond-Regular.otf);
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
-  font-family: 'ProximaNova';
+  font-family: 'ProximaNovaCond';
   src: url(../fonts/proxima-nova/ProximaNovaCond-RegularIt.otf);
   font-weight: normal;
   font-style: italic;
 }
 @font-face {
-  font-family: 'ProximaNova';
+  font-family: 'ProximaNovaCond';
   src: url(../fonts/proxima-nova/ProximaNovaCond-Semibold.otf);
   font-weight: 600;
   font-style: normal;
 }
 @font-face {
-  font-family: 'ProximaNova';
+  font-family: 'ProximaNovaCond';
   src: url(../fonts/proxima-nova/ProximaNovaCond-SemiboldIt.otf);
   font-weight: 600;
   font-style: italic;
 }
 
+* {
+  box-sizing: border-box;
+  font-family: 'ProximaNova', sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.navbar {
+  background-color: #262728;
+  display: inline-block;
+  height: 60px;
+  padding: 0 calc(((100% - 1500px) / 2) + 5%);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
+  @include bp(venti) {
+    padding: 0 5%;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  img {
+    border: 0;
+  }
+
+  .logo {
+    font-size: 19px; //psd says pt, but px looks closer to mock
+    padding-top: 16px;
+    float: left;
+
+    img {
+      vertical-align: middle;
+    }
+
+    .simply {
+      color: #70767f;
+    }
+
+    .social {
+      color: #bec3cc;
+    }
+  }
+
+  .right {
+    float: right;
+  }
+
+  .newMsgIcon {
+    display: inline-block;
+    padding-top: 16px;
+
+    img {
+      vertical-align: middle;
+    }
+  }
+
+  .avatar {
+    display: inline-block;
+    padding-top: 16px;
+
+    img {
+      vertical-align: middle;
+    }
+
+
+  }
+
+  input.search {
+    background: transparent url(../img/search.png) no-repeat right 5px center;
+    border: solid 1px #70767f;
+    @include border-radius(4px);
+    height: 30px;
+    margin: 0 15px;
+    padding-right: 20px;
+    width: 200px;
+  }
+}
+
+.view {
+  padding-top: 60px;
+}
+
+.hero {
+  background: #262728 url(../img/hero-bg.png) no-repeat center top;
+  background-size: 100% 425px;
+  height: 425px;
+  margin: 0;
+  padding: 125px 0 0 0;
+  width: 100%;
+  @include bp(venti) {
+    background-size: auto;
+  }
+
+  .newMsg {
+    background-color: #00b286;
+    height: 156px;
+    margin: 0 auto;
+    opacity: 0.7;
+    padding: 40px 30px 30px;
+    position: relative;
+    width: 575px;
+
+    textarea {
+      background-color: transparent;
+      border-width: 0;
+      color: #ffffff;
+      font-size: 1.75rem;
+      width: 100% 
+    }
+    textarea::-webkit-input-placeholder{
+      color: #ffffff;
+      opacity: 0.7;
+    }
+    textarea:-moz-placeholder {
+      color: #ffffff;
+      opacity: 0.7;
+    }
+    textarea::-moz-placeholder {
+      color: #ffffff;
+      opacity: 0.7;
+    }
+    textarea:-ms-input-placeholder {
+      color: #ffffff;
+      opacity: 0.7;
+    }
+
+    .actions {
+      display: inline-block;
+      opacity: 0.7;
+      position: absolute;
+      bottom: 30px;
+      left: 30px;
+
+      a {
+        color: #ffffff;
+        display: inline-block;
+        padding-right: 1rem;
+        text-decoration: none;
+      }
+    }
+
+    
+  }
+}
