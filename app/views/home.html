@@ -26,12 +26,13 @@
 	</div>
 </nav>
 
-<div ng-repeat="post in model.posts | filter : model.listFilter" class="post" ng-class="{list : model.view=='list', tile : model.view=='tile'}">
+<div ng-repeat="post in model.posts | filter : model.listFilter | orderBy:'-ts'" class="post" ng-class="{list : model.view=='list', tile : model.view=='tile'}">
 	<img ng-src="/app/img/avatar/{{post.user.photo}}" alt="{{post.user.fname}} {{post.user.lname}}" class="avatar" height="40" width="40" />
 	<div class="name">{{post.user.fname}} {{post.user.lname}}</div>
 	<div class="controls">
 		<a href><img src="/app/img/reply.png" alt="reply" height="13" width="13" /></a>
 		<a href><img src="/app/img/like.png" alt="like" height="13" width="13" /></a>
+		<span am-time-ago="post.ts" class="ts"></span>
 	</div>
 	<div class="msg" ng-bind-html="post.msg"></div>
 	<div ng-if="post.photo" class="photo">

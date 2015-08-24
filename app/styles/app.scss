@@ -1,6 +1,7 @@
 $font-stack: 'ProximaNova', sans-serif;
 $ssm-green: #00b286;
 $gray: #70767f;
+$lighter: #bec3cc;
 
 @mixin bp($point) {
   $bp-tall: "(max-width: 600px)";
@@ -192,7 +193,7 @@ body {
     }
 
     .social {
-      color: #bec3cc;
+      color: $lighter;
     }
   }
 
@@ -365,6 +366,12 @@ body {
       display: inline-block;
       margin-left: 10px;
     }
+
+    > .ts {
+      color: $lighter;
+      display: inline-block;
+      margin-left: 10px;
+    }
   }
 
   .msg {
@@ -373,7 +380,7 @@ body {
   }
 
   a, a:visited {
-    color: #bec3cc;
+    color: $lighter;
     text-decoration: none;
   }
 

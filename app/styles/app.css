@@ -258,6 +258,10 @@ body {
     .post.list .controls > a {
       display: inline-block;
       margin-left: 10px; }
+    .post.list .controls > .ts {
+      color: #bec3cc;
+      display: inline-block;
+      margin-left: 10px; }
   .post.list .msg {
     color: #70767f;
     font-size: 1rem; }
