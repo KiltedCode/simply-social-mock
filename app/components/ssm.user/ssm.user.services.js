@@ -7,7 +7,7 @@ angular.module('ssm.user')
 		'id' : 'aaaa-tuan',
 		'fname' : 'Jessica',
 		'lname' : 'Tuan',
-		'photo' : 'aaaa-tuan-thumb.png'
+		'photo' : 'aaaa-tuan-thumb.png',
 	};
 
 	return {

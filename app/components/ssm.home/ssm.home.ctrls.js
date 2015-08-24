@@ -5,8 +5,27 @@ angular.module('ssm.home')
 	$scope.model.postFilter = '';
 	$scope.model.view = 'list';
 	$scope.model.posts = [];
-	$scope.model.showNewMsg = true;
-	
+	$scope.nav.showNewMsg = false;
+	$scope.model.newMsg = '';
+	var id = 100;
+
+	$scope.model.addMsg = function() {
+		if($scope.model.newMsg && $scope.model.newMsg.length > 0) {
+			var newPost = {
+				'id'      : ++id,
+				'ts'      : (new Date()).getTime(),
+				'user'    : $scope.currentUser,
+				'liked'   : false,
+				'msg'     : $scope.model.newMsg,
+				'photo'   : null,
+				'video'   : null,
+				'replies' : []
+			}
+			$scope.model.posts.push(newPost);
+			$scope.model.newMsg = '';
+			$scope.nav.showNewMsg=false;
+		}
+	}
 
 	HomeService.getPosts()
 		.success(function(data, status) {

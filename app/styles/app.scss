@@ -216,8 +216,6 @@ body {
     img {
       vertical-align: middle;
     }
-
-
   }
 
   input.search {
@@ -226,6 +224,7 @@ body {
     @include border-radius(4px);
     height: 30px;
     margin: 0 15px;
+    padding-left: 5px;
     padding-right: 20px;
     width: 200px;
   }
@@ -393,3 +392,56 @@ body {
   }
 }
 
+.newMsg {
+  background-color: rgba(0, 0, 0, 0.8);
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 9999;
+
+  .newMsgModal {
+    background-color: #dee1e5;
+    @include border-radius(4px);
+    color: $gray;
+    height: 215px;
+    margin: 11% auto;
+    padding: 25px 35px;
+    position: relative;
+    @include w575;
+
+    .modalTitle {
+      font-size: 1.2rem;
+    }
+
+    a.close {
+      position: absolute;
+      top: -25px;
+      right: -25px;
+    }
+
+    textarea {
+      background-color: #ffffff;
+      color: $gray;
+      font-size: 1.75rem;
+      height: 95px;
+      margin: 0.75rem auto;
+      padding: 5px 10px;
+      width: 100%;
+    }
+
+    .btnPost {
+      background-color: $ssm-green;
+      border: 0;
+      @include border-radius(4px);
+      color: #ffffff;
+      cursor: pointer;
+      font-size: 1.1rem;
+      padding: 0.5rem 1.5rem;
+      float: right;
+    }
+
+    @include actions($gray);
+  }
+}
