@@ -80,7 +80,7 @@
   font-style: italic; }
 * {
   box-sizing: border-box;
-  font-family: 'ProximaNova', sans-serif; }
+  font-family: "ProximaNova", sans-serif; }
 
 body {
   margin: 0;
@@ -95,11 +95,11 @@ body {
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 9999; }
+  z-index: 9998; }
   @media (max-width: 1500px) {
     .navbar {
       padding: 0 5%; } }
-  .navbar a {
+  .navbar a, .navbar a:visited {
     text-decoration: none; }
   .navbar img {
     border: 0; }
@@ -152,12 +152,17 @@ body {
       background-size: auto; } }
   .hero .newMsg {
     background-color: #00b286;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    border-radius: 4px;
     height: 156px;
     margin: 0 auto;
     opacity: 0.7;
     padding: 40px 30px 30px;
     position: relative;
-    width: 575px; }
+    max-width: 575px;
+    width: 95%; }
     .hero .newMsg textarea {
       background-color: transparent;
       border-width: 0;
@@ -182,10 +187,141 @@ body {
       position: absolute;
       bottom: 30px;
       left: 30px; }
-      .hero .newMsg .actions a {
+      .hero .newMsg .actions a, .hero .newMsg .actions a:visited {
         color: #ffffff;
         display: inline-block;
-        padding-right: 1rem;
+        padding-right: 30px;
+        text-decoration: none; }
+
+.pageNav {
+  font-size: 0.9rem;
+  height: 2rem;
+  margin: 0 auto;
+  position: relative;
+  top: -2.1rem;
+  max-width: 575px;
+  width: 95%; }
+  .pageNav .tabs {
+    display: inline-block;
+    height: 2rem; }
+    .pageNav .tabs a {
+      color: #ffffff;
+      display: inline-block;
+      opacity: 0.5;
+      margin-right: 30px;
+      padding: 0 1em 1em;
+      text-decoration: none;
+      text-transform: uppercase; }
+    .pageNav .tabs a.selected {
+      border-bottom: 0.3em solid #00b286;
+      opacity: 1.0; }
+  .pageNav .viewCtrls {
+    display: inline-block;
+    float: right;
+    height: 2rem; }
+    .pageNav .viewCtrls a {
+      display: inline-block;
+      border: 0;
+      margin-left: 15px;
+      text-decoration: none;
+      opacity: 0.5; }
+    .pageNav .viewCtrls a.selected {
+      opacity: 1.0; }
+
+.post {
+  border: 1px solid #dee1e5;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  border-radius: 4px;
+  line-height: 1.5rem;
+  padding: 20px 20px 20px 80px;
+  position: relative; }
+
+.post.list {
+  margin: 20px auto;
+  max-width: 575px;
+  width: 95%; }
+  .post.list .avatar {
+    position: absolute;
+    left: 20px;
+    top: 20px; }
+  .post.list .name {
+    color: #3f454d;
+    font-size: 1.1rem;
+    padding-bottom: 0.25rem; }
+  .post.list .controls {
+    position: absolute;
+    right: 20px;
+    top: 20px; }
+    .post.list .controls > a {
+      display: inline-block;
+      margin-left: 10px; }
+  .post.list .msg {
+    color: #70767f;
+    font-size: 1rem; }
+  .post.list a, .post.list a:visited {
+    color: #bec3cc;
+    text-decoration: none; }
+  .post.list .photo {
+    margin-top: 1rem;
+    position: relative;
+    left: -80px;
+    width: calc(100% + 100px); }
+  .post.list .video {
+    margin-top: 1rem;
+    position: relative;
+    left: -80px;
+    width: calc(100% + 100px); }
+
+.newMsg {
+  background-color: rgba(0, 0, 0, 0.8);
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 9999; }
+  .newMsg .newMsgModal {
+    background-color: #dee1e5;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    border-radius: 4px;
+    color: #70767f;
+    height: 215px;
+    margin: 15% auto;
+    padding: 20px;
+    position: relative;
+    max-width: 575px;
+    width: 95%; }
+    .newMsg .newMsgModal .modalTitle {
+      font-size: 1.1rem; }
+    .newMsg .newMsgModal textarea {
+      background-color: #ffffff;
+      height: 140px;
+      margin: 0 auto;
+      width: 90%; }
+    .newMsg .newMsgModal .btnPost {
+      background-color: #00b286;
+      -webkit-border-radius: 4px;
+      -moz-border-radius: 4px;
+      -ms-border-radius: 4px;
+      border-radius: 4px;
+      color: #ffffff;
+      padding: 1rem 2rem;
+      float: left;
+      margin-right: 5%; }
+    .newMsg .newMsgModal .actions {
+      display: inline-block;
+      opacity: 0.7;
+      position: absolute;
+      bottom: 30px;
+      left: 30px; }
+      .newMsg .newMsgModal .actions a, .newMsg .newMsgModal .actions a:visited {
+        color: #70767f;
+        display: inline-block;
+        padding-right: 30px;
         text-decoration: none; }
 
 /*# sourceMappingURL=app.css.map */

@@ -4,10 +4,10 @@
 </div>
 
 <div class="right">
-	<a href class="newMsgIcon"><img src="/app/img/new-message.png" height="26" width="31" alt="SimplySocial" /></a>
+	<a href ng-click="model.showNewMsg = true" class="newMsgIcon"><img src="/app/img/new-message.png" height="26" width="31" alt="SimplySocial" /></a>
 	<input type="search" class="search" />
 	<a href class="avatar">
-		<img src="/app/img/{{currentUser.photo}}" alt="User Menu" height="30" width="30" />
+		<img src="/app/img/avatar/{{currentUser.photo}}" alt="User Menu" height="30" width="30" />
 		<img src="/app/img/down-arrow.png" alt="Open" class="mid" height="4" width="7" />
 	</a>
 </div>

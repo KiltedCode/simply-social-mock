@@ -1,4 +1,6 @@
+$font-stack: 'ProximaNova', sans-serif;
 $ssm-green: #00b286;
+$gray: #70767f;
 
 @mixin bp($point) {
   $bp-tall: "(max-width: 600px)";
@@ -16,11 +18,33 @@ $ssm-green: #00b286;
   }
 }
 
+@mixin actions($color) {
+  .actions {
+    display: inline-block;
+    opacity: 0.7;
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+
+    a, a:visited {
+      color: $color;
+      display: inline-block;
+      padding-right: 30px;
+      text-decoration: none;
+    }
+  }
+}
+
 @mixin border-radius($radius) {
   -webkit-border-radius: $radius;
      -moz-border-radius: $radius;
       -ms-border-radius: $radius;
           border-radius: $radius;
+}
+
+@mixin w575() {
+  max-width: 575px;
+  width: 95%;
 }
 
 @font-face {
@@ -124,7 +148,7 @@ $ssm-green: #00b286;
 
 * {
   box-sizing: border-box;
-  font-family: 'ProximaNova', sans-serif;
+  font-family: $font-stack;
 }
 
 body {
@@ -141,12 +165,12 @@ body {
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 9999;
+  z-index: 9998;
   @include bp(venti) {
     padding: 0 5%;
   }
 
-  a {
+  a, a:visited {
     text-decoration: none;
   }
 
@@ -164,7 +188,7 @@ body {
     }
 
     .simply {
-      color: #70767f;
+      color: $gray;
     }
 
     .social {
@@ -198,7 +222,7 @@ body {
 
   input.search {
     background: transparent url(../img/search.png) no-repeat right 5px center;
-    border: solid 1px #70767f;
+    border: solid 1px $gray;
     @include border-radius(4px);
     height: 30px;
     margin: 0 15px;
@@ -224,12 +248,13 @@ body {
 
   .newMsg {
     background-color: #00b286;
+    @include border-radius(4px);
     height: 156px;
     margin: 0 auto;
     opacity: 0.7;
     padding: 40px 30px 30px;
     position: relative;
-    width: 575px;
+    @include w575;
 
     textarea {
       background-color: transparent;
@@ -255,21 +280,116 @@ body {
       opacity: 0.7;
     }
 
-    .actions {
-      display: inline-block;
-      opacity: 0.7;
-      position: absolute;
-      bottom: 30px;
-      left: 30px;
+    @include actions(#ffffff);
+  }
 
-      a {
-        color: #ffffff;
-        display: inline-block;
-        padding-right: 1rem;
-        text-decoration: none;
-      }
+  
+}
+
+.pageNav {
+  font-size: 0.9rem;
+  height: 2rem;
+  margin: 0 auto;
+  position: relative;
+  top: -2.1rem;
+  @include w575;
+
+  .tabs {
+    display: inline-block;
+    height: 2rem;
+
+    a {
+      color: #ffffff;
+      display: inline-block;
+      opacity: 0.5;
+      margin-right: 30px;
+      padding: 0 1em 1em;
+      text-decoration: none;
+      text-transform: uppercase;
     }
 
-    
+    a.selected {
+      border-bottom: 0.3em solid $ssm-green;
+      opacity: 1.0;
+    }
+  }
+
+  .viewCtrls {
+    display: inline-block;
+    float: right;
+    height: 2rem;
+
+    a {
+      display: inline-block;
+      border: 0;
+      margin-left: 15px;
+      text-decoration: none;
+      opacity: 0.5;
+    }
+
+    a.selected {
+      opacity: 1.0;
+    }
   }
 }
+
+.post {
+  border: 1px solid #dee1e5;
+  @include border-radius(4px);
+  line-height: 1.5rem;
+  padding: 20px 20px 20px 80px;
+  position: relative;
+} 
+
+.post.list {
+  margin: 20px auto;
+  @include w575;
+
+  .avatar {
+    position: absolute;
+    left: 20px;
+    top: 20px;
+  }
+
+  .name {
+    color: #3f454d;
+    font-size: 1.1rem;
+    padding-bottom: 0.25rem;
+  }
+
+  .controls {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+
+    > a {
+      display: inline-block;
+      margin-left: 10px;
+    }
+  }
+
+  .msg {
+    color: $gray;
+    font-size: 1rem;
+  }
+
+  a, a:visited {
+    color: #bec3cc;
+    text-decoration: none;
+  }
+
+  .photo {
+    margin-top: 1rem;
+    position: relative;
+    left: -80px;
+    width: calc(100% + 100px);
+  }
+
+  .video {
+    margin-top: 1rem;
+    position: relative;
+    left: -80px;
+    width: calc(100% + 100px);
+  }
+}
+

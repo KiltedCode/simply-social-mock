@@ -1,15 +1,46 @@
 <div class="hero">
 	<div class="newMsg">
-		<textarea rows="1" placeholder="What's on your mind?"></textarea>
+		<textarea rows="1" placeholder="What's on your mind?" ng-model="model.newMsg" autofocus></textarea>
 		<div class="actions">
 			<a href>
-				<img src="/app/img/add-photo.png" height="13" width="18" alt="Add Photo" />
+				<img ng-src="/app/img/add-photo.png" height="13" width="18" alt="Add Photo" />
 				<span>Add Photo</span>
 			</a>
 			<a href>
 				<img src="/app/img/add-video.png" height="13" width="18" alt="Add Video" />
-				<span>Add Photo</span>
+				<span>Add Video</span>
 			</a>
 		</div>
+	</div>
+	
+</div>
+<nav class="pageNav">
+	<div class="tabs">
+		<a href ng-class="{selected : model.postFilter==''}" ng-click="model.postFilter=''">All Posts</a>
+		<a href ng-class="{selected : model.postFilter=='photo'}" ng-click="model.postFilter='photo'">Photos</a>
+		<a href ng-class="{selected : model.postFilter=='video'}" ng-click="model.postFilter='video'">Videos</a>
+	</div>
+	<div class="viewCtrls">
+		<a href ng-class="{selected : model.view=='list'}" ng-click="model.view='list'"><img src="/app/img/list.png" height="9" width="9" alt="List View" title="List View" /></a>
+		<a href ng-class="{selected : model.view=='tile'}" ng-click="model.view='tile'"><img src="/app/img/tile.png" height="9" width="9" alt="Tile View" title="Tile View" /></a>
+	</div>
+</nav>
+
+<div ng-repeat="post in model.posts | filter : model.listFilter" class="post" ng-class="{list : model.view=='list', tile : model.view=='tile'}">
+	<img ng-src="/app/img/avatar/{{post.user.photo}}" alt="{{post.user.fname}} {{post.user.lname}}" class="avatar" height="40" width="40" />
+	<div class="name">{{post.user.fname}} {{post.user.lname}}</div>
+	<div class="controls">
+		<a href><img src="/app/img/reply.png" alt="reply" height="13" width="13" /></a>
+		<a href><img src="/app/img/like.png" alt="like" height="13" width="13" /></a>
+	</div>
+	<div class="msg" ng-bind-html="post.msg"></div>
+	<div ng-if="post.photo" class="photo">
+		<img ng-src="/app/img/post/{{post.photo}}" alt="Post Photo" width="100%" />
+	</div>
+	<div ng-if="post.video" class="video">
+		<img ng-src="/app/img/post/{{post.video}}" alt="Post Video" width="100%" />
+	</div>
+	<div ng-if="post.replies.length>0">
+		<a href>Expand <img src="/app/img/down-arrow.png" alt="Expand" class="mid" height="4" width="7" /></a> 
 	</div>
 </div>
