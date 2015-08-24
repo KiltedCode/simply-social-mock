@@ -1,5 +1,6 @@
 $font-stack: 'ProximaNova', sans-serif;
 $ssm-green: #00b286;
+$darker: #3f454d;
 $gray: #70767f;
 $lighter: #bec3cc;
 
@@ -157,134 +158,7 @@ body {
   padding: 0;
 }
 
-.navbar {
-  background-color: #262728;
-  display: inline-block;
-  height: 60px;
-  padding: 0 calc(((100% - 1500px) / 2) + 5%);
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 9998;
-  @include bp(venti) {
-    padding: 0 5%;
-  }
-
-  a, a:visited {
-    text-decoration: none;
-  }
-
-  img {
-    border: 0;
-  }
-
-  .logo {
-    font-size: 19px; //psd says pt, but px looks closer to mock
-    padding-top: 16px;
-    float: left;
-
-    img {
-      vertical-align: middle;
-    }
-
-    .simply {
-      color: $gray;
-    }
-
-    .social {
-      color: $lighter;
-    }
-  }
-
-  .right {
-    float: right;
-  }
-
-  .newMsgIcon {
-    display: inline-block;
-    padding-top: 16px;
-
-    img {
-      vertical-align: middle;
-    }
-  }
-
-  .avatar {
-    display: inline-block;
-    padding-top: 16px;
-
-    img {
-      vertical-align: middle;
-    }
-  }
-
-  .user {
-    display: inline-block;
-    position: relative;
-
-    .subMenu {
-      background-color: #f4f5f7;
-      @include border-radius(4px);
-      opacity: 0;
-      transition: opacity linear 0.15s;
-      padding: 0;
-      position: absolute;
-      top: 85%;
-      left: -25px;
-      width: 100px;
-      z-index: -1;
-
-      li {
-        border-bottom: 1px solid $lighter;
-        display: block;
-        font-size: 1rem;
-
-        a {
-          color: $gray;
-          font-size: 0.9rem;
-          display: block;
-          padding: 10px 20px;
-        }
-      }
-      li:last-child {
-        border-bottom: 0;
-      }
-
-      .arrow {
-        border-bottom: 10px solid #f4f5f7;
-        border-left: 10px solid transparent;
-        border-right: 10px solid transparent;
-        border-top: 0;
-        height: 0;
-        margin: 0;
-        padding: 0;
-        position: absolute;
-        top: -6px;
-        right: 26px;
-        width: 0;
-      }
-    }
-  }
-
-  .user:hover {
-    .subMenu {
-      opacity: 1;
-      z-index: 1;
-    }
-  }
-
-  input.search {
-    background: transparent url(../img/search.png) no-repeat right 5px center;
-    border: solid 1px $gray;
-    @include border-radius(4px);
-    height: 30px;
-    margin: 0 15px;
-    padding-left: 5px;
-    padding-right: 20px;
-    width: 200px;
-  }
-}
+@import 'navbar';
 
 .view {
   padding-top: 60px;
@@ -310,6 +184,7 @@ body {
     padding: 40px 30px 30px;
     position: relative;
     @include w575;
+    z-index: 1;
 
     textarea {
       background-color: transparent;
@@ -388,122 +263,6 @@ body {
   }
 }
 
-.post {
-  border: 1px solid #dee1e5;
-  @include border-radius(4px);
-  line-height: 1.5rem;
-  padding: 20px 20px 20px 80px;
-  position: relative;
-} 
+@import  'posts';
 
-.post.list {
-  margin: 20px auto;
-  @include w575;
-
-  .avatar {
-    position: absolute;
-    left: 20px;
-    top: 20px;
-  }
-
-  .name {
-    color: #3f454d;
-    font-size: 1.1rem;
-    padding-bottom: 0.25rem;
-  }
-
-  .controls {
-    position: absolute;
-    right: 20px;
-    top: 20px;
-
-    > a {
-      display: inline-block;
-      margin-left: 10px;
-    }
-
-    > .ts {
-      color: $lighter;
-      display: inline-block;
-      margin-left: 10px;
-    }
-  }
-
-  .msg {
-    color: $gray;
-    font-size: 1rem;
-  }
-
-  a, a:visited {
-    color: $lighter;
-    text-decoration: none;
-  }
-
-  .photo {
-    margin-top: 1rem;
-    position: relative;
-    left: -80px;
-    width: calc(100% + 100px);
-  }
-
-  .video {
-    margin-top: 1rem;
-    position: relative;
-    left: -80px;
-    width: calc(100% + 100px);
-  }
-}
-
-.newMsg {
-  background-color: rgba(0, 0, 0, 0.8);
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  z-index: 9999;
-
-  .newMsgModal {
-    background-color: #dee1e5;
-    @include border-radius(4px);
-    color: $gray;
-    height: 215px;
-    margin: 11% auto;
-    padding: 25px 35px;
-    position: relative;
-    @include w575;
-
-    .modalTitle {
-      font-size: 1.2rem;
-    }
-
-    a.close {
-      position: absolute;
-      top: -25px;
-      right: -25px;
-    }
-
-    textarea {
-      background-color: #ffffff;
-      color: $gray;
-      font-size: 1.75rem;
-      height: 95px;
-      margin: 0.75rem auto;
-      padding: 5px 10px;
-      width: 100%;
-    }
-
-    .btnPost {
-      background-color: $ssm-green;
-      border: 0;
-      @include border-radius(4px);
-      color: #ffffff;
-      cursor: pointer;
-      font-size: 1.1rem;
-      padding: 0.5rem 1.5rem;
-      float: right;
-    }
-
-    @include actions($gray);
-  }
-}
+@import  'user';

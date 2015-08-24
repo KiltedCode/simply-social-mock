@@ -49,10 +49,10 @@ angular.module('ssm.home')
 		.success(function(data, status) {
 			$scope.model.posts = data;
 			adjustTStoRecent();
-			console.log('posts', $scope.model.posts);
 		})
 		.error(function(data, status) {
-			console.log('error');
+			//TODO: error handling
+			console.log('error', status);
 		});
 
 	$scope.model.listFilter = function(element) {

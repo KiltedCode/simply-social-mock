@@ -1,0 +1,95 @@
+<div class="settings">
+	<h1>Settings</h1>
+
+	<h2 class="sectionTitle">Account</h2>
+	<div class="section sectionAccount">
+		<img ng-src="/app/img/avatar/{{model.user.photo}}" alt="Profile Images" class="avatar" height="85" width="85" />
+		<button type="button" class="btnWhite btnAvatar">change</button>
+		<input type="text" class="name" ng-model="model.user.name" />
+		<input type="text" class="email" ng-model="model.user.email" />
+		<input type="password" class="password" value="password" /><a href ng-if="!model.changePassword" ng-click="model.changePassword=true" class="changePassword">change</a>
+		<input type="password" ng-if="model.changePassword" class="password" value="" /><a href ng-if="model.changePassword" ng-click="model.changePassword=false" class="savePassword">save</a>
+	</div>
+
+	<h2 class="sectionTitle">Notifications</h2>
+	<div class="section sectionNotifications">
+		<label><input type="checkbox" class="ios-switch" ng-model="model.user.notifications.favorites" />
+            <div class="switch" style="margin-left: 0;"></div></label>
+        <div class="switchLabel">
+       		email me when my posts are marked as favorites
+        </div>
+        <br />
+        <label><input type="checkbox" class="ios-switch" ng-model="model.user.notifications.mentions" />
+            <div class="switch" style="margin-left: 0;"></div></label>
+        <div class="switchLabel">
+       		email me when I'm mentioned
+        </div>
+        <br />
+        <label><input type="checkbox" class="ios-switch" ng-model="model.user.notifications.replies" />
+            <div class="switch" style="margin-left: 0;"></div></label>
+        <div class="switchLabel">
+       		email me when I get a reply
+        </div>
+        <br />
+        <label><input type="checkbox" class="ios-switch" ng-model="model.user.notifications.follows" />
+            <div class="switch" style="margin-left: 0;"></div></label>
+        <div class="switchLabel">
+       		email me when someone follows me
+        </div>
+	</div>
+
+	<h2 class="sectionTitle">Privacy</h2>
+	<div class="section sectionPrivacy">
+		<div class="circleCheck">
+			<input type="radio" id="anyTag" name="tag" value="anyone" ng-model="model.user.privacy.tag" />
+			<label for="anyTag"></label>
+		</div>
+		<div class="ccLabelSm">
+			allow anyone to tag me
+		</div>
+		<br/>
+		<div class="circleCheck">
+			<input type="radio" id="followTag" name="tag" value="follow" ng-model="model.user.privacy.tag"  />
+			<label for="followTag"></label>
+		</div>
+		<div class="ccLabelSm">
+			only allow people I follow to tag me
+		</div>
+		<br/>
+		<div class="circleCheck">
+			<input type="radio" id="noTag" name="tag" value="no" ng-model="model.user.privacy.tag" />
+			<label for="noTag"></label>
+		</div>
+		<div class="ccLabel">
+			don't allow anyone to tag me
+		</div>
+		<br/>
+
+		<div class="circleCheck">
+			<input type="checkbox" id="location" ng-model="model.user.privacy.location" />
+			<label for="location"></label>
+		</div>
+		<div class="ccLabel">
+			add a location to my posts
+		</div>
+		<br/>
+		<div class="circleCheck">
+			<input type="checkbox" id="findEmail" ng-model="model.user.privacy.findEmail" />
+			<label for="findEmail"></label>
+		</div>
+		<div class="ccLabel">
+			let others find me by my email address
+		</div>
+		<br/>
+		<div class="circleCheck">
+			<input type="checkbox" id="tailorAds" ng-model="model.user.privacy.tailorAds" />
+			<label for="tailorAds"></label>
+		</div>
+		<div class="ccLabel">
+			tailor adds based on my information
+		</div>
+
+	</div>
+
+	<button type="button" class="btnGreen">Save Changes</button>
+</div>

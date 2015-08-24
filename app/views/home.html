@@ -22,7 +22,7 @@
 	</div>
 	<div class="viewCtrls">
 		<a href ng-class="{selected : model.view=='list'}" ng-click="model.view='list'"><img src="/app/img/list.png" height="9" width="9" alt="List View" title="List View" /></a>
-		<a href ng-class="{selected : model.view=='tile'}" ng-click="model.view='tile'"><img src="/app/img/tile.png" height="9" width="9" alt="Tile View" title="Tile View" /></a>
+		<a href ng-class="{selected : model.view=='tile'}" ><img src="/app/img/tile.png" height="9" width="9" alt="Tile View" title="Tile View" /></a>
 	</div>
 </nav>
 
@@ -46,6 +46,7 @@
 	</div>
 </div>
 
+<!-- TODO: externalize so work anywhere, put here so could interact with posts lists locally -->
 <div ng-if="nav.showNewMsg" class="newMsg">
 	<div class="newMsgModal">
 		<div class="modalTitle">

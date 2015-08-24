@@ -1,0 +1,231 @@
+.settings {
+  margin: 0 auto;
+  padding: 0 0 3rem 0;
+  @include w575;
+
+  h1 {
+    color: $darker;
+    font-size: 2rem;
+  }
+
+  .section {
+    border-bottom: 1px solid $lighter;
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    position: relative;
+  }
+
+  .sectionTitle {
+    color: $gray;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  .sectionAccount {
+    padding: 20px 20px 20px 130px;
+
+    .avatar {
+      position: absolute;
+      left: 0px;
+      top: 20px;
+    }
+
+    input {
+      color: $darker;
+      border: 1px solid $lighter;
+      @include border-radius(4px);
+      font-size: 1.15rem;
+      font-weight: 300;
+      margin-bottom: 15px;
+      padding: 0.75rem 0.5rem 0.5rem 36px;
+      width: 350px;
+    }
+
+    input.name {
+      background: transparent url(../img/name.png) no-repeat left 10px center;
+    }
+
+    input.email {
+      background: transparent url(../img/email.png) no-repeat left 10px center;
+    }
+
+    input.password {
+      background: transparent url(../img/lock.png) no-repeat left 10px center;
+      padding-right: 20px;
+    }
+
+    a.changePassword {
+      color: $lighter;
+      display: inline-block;
+      font-size: 0.85rem;
+      position: relative;
+      left: -60px;
+      top: -0.15rem;
+      text-decoration: none;
+    }
+
+    a.savePassword {
+      @extend a.changePassword;
+      left: -45px;
+    }
+
+  }
+}
+
+.switchLabel {
+  color: $gray;
+  display: inline-block;
+  margin-bottom: 1.5rem;
+}
+
+.ccLabel {
+  @extend .switchLabel;
+}
+
+.ccLabelSm {
+  @extend .ccLabel;
+  margin-bottom: 0.75rem;
+}
+
+.circleCheck {
+  background: #ffffff;
+  border: 1px solid $lighter;
+  @include border-radius(100%);
+  display: inline-block;
+  height: 26px;
+  margin-right: 1rem;
+  position: relative;
+  width: 26px;
+}
+
+.circleCheck input {
+  visibility: hidden;
+}
+
+.circleCheck label {
+  background: #ffffff;
+  border: 1px solid $lighter;
+  @include border-radius(100px);
+  cursor: pointer;
+  display: block;
+  height: 16px;
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 16px;
+  z-index: 1;
+}
+
+.circleCheck input[type=checkbox]:checked + label {
+  background: $ssm-green;
+}
+
+.circleCheck input[type=radio]:checked + label {
+  background: $ssm-green;
+}
+
+.btnGreen {
+  background-color: $ssm-green;
+  border: 0;
+  @include border-radius(4px);
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 1.1rem;
+  padding: 0.5rem 1.5rem;
+}
+
+.btnWhite {
+  background-color: #ffffff;
+  border: 0;
+  @include border-radius(4px);
+  color: $lighter;
+  cursor: pointer;
+  font-size: 1.1rem;
+  padding: 0.5rem 1.5rem;
+}
+
+.btnAvatar {
+  border: 1px solid $lighter;
+  font-size: 0.9rem;
+  padding: 0.25rem 0;
+  position: absolute;
+  left: 0px;
+  top: 115px;
+  text-align: center;
+  width: 85px;
+}
+
+/**
+ * iOS 6 style switch checkboxes
+ * by Lea Verou http://lea.verou.me
+ * coloring modified
+ */
+:root input[type="checkbox"].ios-switch { /* :root here acting as a filter for older browsers */
+    position: absolute;
+    opacity: 0;
+}
+:root input[type="checkbox"].ios-switch + div {
+    display: inline-block;
+    vertical-align: middle;
+    width: 2em; height: 1em;
+    border: 1px solid rgba(0,0,0,.3);
+    border-radius: 999px;
+    margin: 0 .5em;
+    background: white;
+    background-image: linear-gradient(rgba(0,0,0,.1), transparent),
+    linear-gradient(90deg, $ssm-green 50%, transparent 50%);
+    background-size: 200% 100%;
+    background-position: 100% 0;
+    background-origin: border-box;
+    background-clip: border-box;
+    box-sizing: content-box;
+    overflow: hidden;
+    transition-duration: .4s;
+    transition-property: padding, width, background-position, text-indent;
+    box-shadow: 0 .1em .1em rgba(0,0,0,.2) inset,
+    0 .45em 0 .1em rgba(0,0,0,.05) inset;
+    font-size: 150%; /* change this and see how they adjust! */
+}
+:root input[type="checkbox"].ios-switch:checked + div {
+    background-position: 0 0;
+    box-sizing: content-box;
+    padding-left: 1em;
+    width: 1em;
+}
+:root input[type="checkbox"].ios-switch + div:before {
+    content: ' ';
+    float: left;
+    width: 1.65em; height: 1.65em;
+    margin: -.1em;
+    border: 1px solid rgba(0,0,0,.35);
+    border-radius: inherit;
+    box-sizing: content-box;
+    background: white;
+    background-image: linear-gradient(rgba(0,0,0,.2), transparent);
+    box-shadow: 0 .1em .1em .1em hsla(0,0%,100%,.8) inset,
+    0 0 .5em rgba(0,0,0,.3);
+    color: white;
+    text-shadow: 0 -1px 1px rgba(0,0,0,.3);
+    text-indent: -2.5em;
+}
+:root input[type="checkbox"].ios-switch:active + div:before {
+    background-color: #eee;
+}
+:root input[type="checkbox"].ios-switch:focus + div {
+    box-shadow: 0 .1em .1em rgba(0,0,0,.2) inset,
+    0 .45em 0 .1em rgba(0,0,0,.05) inset,
+    0 0 .4em 1px rgba(255,0,0,.5);
+}
+:root input[type="checkbox"].ios-switch + div:before,
+:root input[type="checkbox"].ios-switch + div:after {
+    font: bold 60%/1.9 sans-serif;
+    text-transform: uppercase;
+}
+:root input[type="checkbox"].ios-switch + div:after {
+    content: ' ';
+    float: left;
+    text-indent: .5em;
+    color: rgba(0,0,0,.45);
+    text-shadow: none;
+}

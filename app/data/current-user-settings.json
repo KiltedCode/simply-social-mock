@@ -1,0 +1,18 @@
+{
+		"id" : "aaaa-tuan",
+		"name" : "Jessica Tuan",
+		"email" : "jessica@mail.com",
+		"photo" : "aaaa-tuan-profile.png",
+		"notifications" : {
+			"favorites" : true,
+			"mentions" : true,
+			"replies" : true,
+			"follows" : true
+		},
+		"privacy" : {
+			"tag" : "anyone",
+			"location" : true,
+			"findEmail" : true,
+			"tailorAds" : true
+		}
+	}
