@@ -6,8 +6,17 @@
 <div class="right">
 	<a href ng-click="nav.showNewMsg = true" class="newMsgIcon"><img src="/app/img/new-message.png" height="26" width="31" alt="SimplySocial" /></a>
 	<input type="search" class="search" />
-	<a href class="avatar">
-		<img src="/app/img/avatar/{{currentUser.photo}}" alt="User Menu" height="30" width="30" />
-		<img src="/app/img/down-arrow.png" alt="Open" height="4" width="7" />
-	</a>
+	<div class="user">
+		<a href class="avatar">
+			<img src="/app/img/avatar/{{currentUser.photo}}" alt="User Menu" height="30" width="30" />
+			<img src="/app/img/down-arrow.png" alt="Open" height="4" width="7" />
+		</a>
+		<ul class="subMenu">
+            <li><a href>Profile</a></li>
+            <li><a href>Followers</a></li>
+            <li><a href>Following</a></li>
+            <li><a href="#/currentuser/settings">Settings</a></li>
+            <div class="arrow"></div>
+        </ul>
+	</div>
 </div>

@@ -219,6 +219,61 @@ body {
     }
   }
 
+  .user {
+    display: inline-block;
+    position: relative;
+
+    .subMenu {
+      background-color: #f4f5f7;
+      @include border-radius(4px);
+      opacity: 0;
+      transition: opacity linear 0.15s;
+      padding: 0;
+      position: absolute;
+      top: 85%;
+      left: -25px;
+      width: 100px;
+      z-index: -1;
+
+      li {
+        border-bottom: 1px solid $lighter;
+        display: block;
+        font-size: 1rem;
+
+        a {
+          color: $gray;
+          font-size: 0.9rem;
+          display: block;
+          padding: 10px 20px;
+        }
+      }
+      li:last-child {
+        border-bottom: 0;
+      }
+
+      .arrow {
+        border-bottom: 10px solid #f4f5f7;
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        border-top: 0;
+        height: 0;
+        margin: 0;
+        padding: 0;
+        position: absolute;
+        top: -6px;
+        right: 26px;
+        width: 0;
+      }
+    }
+  }
+
+  .user:hover {
+    .subMenu {
+      opacity: 1;
+      z-index: 1;
+    }
+  }
+
   input.search {
     background: transparent url(../img/search.png) no-repeat right 5px center;
     border: solid 1px $gray;
