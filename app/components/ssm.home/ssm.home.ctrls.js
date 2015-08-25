@@ -39,7 +39,6 @@ angular.module('ssm.home')
 				rand = Math.floor(Math.random()*36) + 1;
 			}
 
-			console.log('rand', rand);
 			lastTS -= rand * 60000;
 			$scope.model.posts[i].ts = lastTS;
 		}
